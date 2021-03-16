@@ -3,12 +3,16 @@ import Router from 'vue-router';
 import MainApp from '@/MainApp';
 import MainComponent from '@/components/MainComponent';
 import PlayListComponent from '@/components/PlayListComponent';
-import {FontAwesomeIcon} from 'fortawesome/vue-fontawesome';
+import {library} from '@fortawesome/fontawesome-svg-core';
+import {faBars} from '@fortawesome/free-solid-svg-icons';
+import {FontAwesomeIcon} from '@fortawesome/vue-fontawesome';
 
 import './app.css';
 
 Vue.use(Router);
+library.add(faBars);
 Vue.component('font-awesome-icon', FontAwesomeIcon);
+Vue.config.productionTip = false;
 
 const router = new Router({
     routes:[
