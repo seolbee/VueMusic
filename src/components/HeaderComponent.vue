@@ -12,7 +12,7 @@
       </div>
     </div>
     <div class="user">
-      <router-link to="/login">로그인</router-link>
+      <router-link to="/login" class="login_btn">로그인</router-link>
     </div>
   </header>
 </template>
@@ -25,12 +25,22 @@ export default {
   header{
     display: flex;
     justify-content: space-between;
-    padding: 10px;
-    height: 50px;
+    padding: 20px;
     align-items: center;
+    background-color: #050213;
   }
 
   .left{
     display:flex;
+  }
+  
+  .left img{
+    display: none;
+  }
+
+  .login_btn{
+    background-color: #0000b3;
+    padding: 7px 20px;
+    border-radius: 3px;
   }
 </style>

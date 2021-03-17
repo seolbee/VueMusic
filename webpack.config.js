@@ -25,6 +25,11 @@ module.exports={
             {
                 test:/\.vue$/,
                 loader:'vue-loader'
+            },
+            {
+                test:/\.mp3$/,
+                include:SRC,
+                loader:'file-loader'
             }
         ]
     },

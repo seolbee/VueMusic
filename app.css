@@ -2,7 +2,8 @@
     margin: 0;
     padding: 0;
     box-sizing:border-box;
-    color: #000;
+    color: #fff;
+    outline: none;
 }
 
 a{
@@ -13,3 +14,11 @@ ul, li{
     list-style: none;
 }
 
+body{
+    background-color: #1a1923;
+}
+
+input[type="text"]{
+    background: none;
+    border: none;
+}
