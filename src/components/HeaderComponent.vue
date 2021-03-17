@@ -27,20 +27,28 @@ export default {
     justify-content: space-between;
     padding: 20px;
     align-items: center;
-    background-color: #050213;
+    background-color: #000;
   }
 
   .left{
     display:flex;
+    justify-content: space-around;
+    align-items: center;
   }
   
   .left img{
-    display: none;
+    width: 100%;
   }
 
   .login_btn{
-    background-color: #0000b3;
     padding: 7px 20px;
     border-radius: 3px;
+    color: white;
+  }
+
+  .nav_btn{
+    margin-right: 30px;
+    margin-left: 10px;
+    font-size: 20px;
   }
 </style>

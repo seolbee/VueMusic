@@ -16,18 +16,19 @@ export default {
     position: fixed;
     display: flex;
     flex-direction: column;
-    background-color: #050213;
+    background-color: #000;
+    box-shadow: 0px 0px 1px rgba(0,0,0, .01);
   }
 
   nav > a{
     width: 100%;
     height: 50px;
     line-height: 50px;
-    padding-left: 10px;
+    padding-left: 30px;
     font-size: 18px;
   }
 
-  nav > a > svg{
+  nav > a > svg {
     margin-right: 10px;
   }
 </style>
