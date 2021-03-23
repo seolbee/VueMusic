@@ -2,7 +2,9 @@
     <div>
         <music-header></music-header>
         <music-nav></music-nav>
-        <router-view></router-view>
+        <section id="main">
+            <router-view></router-view>
+        </section>
         <music-controller></music-controller>
     </div>
 </template>

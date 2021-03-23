@@ -2,8 +2,8 @@
     margin: 0;
     padding: 0;
     box-sizing:border-box;
-    color: #fff;
     outline: none;
+    color: #555;
 }
 
 a{
@@ -15,6 +15,7 @@ ul, li{
 }
 
 body{
+    background-color: rgb(253, 253, 253);
 }
 
 input[type="text"]{

@@ -27,7 +27,7 @@ export default {
     justify-content: space-between;
     padding: 20px;
     align-items: center;
-    background-color: #000;
+    background-color: #fff;
   }
 
   .left{
@@ -43,7 +43,6 @@ export default {
   .login_btn{
     padding: 7px 20px;
     border-radius: 3px;
-    color: white;
   }
 
   .nav_btn{
