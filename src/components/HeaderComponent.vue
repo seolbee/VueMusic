@@ -1,13 +1,9 @@
 <template>
   <header>
-    <div class="left">
-      <div class="nav_btn"><font-awesome-icon :icon="['fas', 'bars']"></font-awesome-icon></div>
-      <router-link to="/"><img src="/image/logo.png" alt="img"></router-link>
-    </div>
     <div class="search">
       <div class="input_box">
-        <form action="/search">
-          <input type="text" placeholder="search music" />
+        <form>
+          <input type="text" placeholder="검색" />
         </form>
       </div>
     </div>
@@ -18,7 +14,12 @@
 </template>
 <script>
 export default {
-    name:'HeaderComponent'
+    name:'HeaderComponent',
+    methods:{
+      nav_block(){
+        
+      }
+    }
 }
 </script>
 <style scoped>
@@ -27,22 +28,21 @@ export default {
     justify-content: space-between;
     padding: 20px;
     align-items: center;
-    background-color: #fff;
-  }
-
-  .left{
-    display:flex;
-    justify-content: space-around;
-    align-items: center;
-  }
-  
-  .left img{
+    /* background-color: rgb(250, 250, 250); */
+    background-color: black;
     width: 100%;
+    /* background-color: #333; */
   }
+/*   
+  .left img{
+    
+  } */
 
   .login_btn{
     padding: 7px 20px;
     border-radius: 3px;
+    border: 1px solid #78FEE0;
+    color: #78FEE0;
   }
 
   .nav_btn{
