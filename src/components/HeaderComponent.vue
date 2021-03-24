@@ -33,11 +33,7 @@ export default {
     width: 100%;
     /* background-color: #333; */
   }
-/*   
-  .left img{
-    
-  } */
-
+  
   .login_btn{
     padding: 7px 20px;
     border-radius: 3px;
