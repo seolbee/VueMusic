@@ -2,25 +2,25 @@
     <div class="music-bar">
         <div class="left">
             <div class="img">
-                <img src="cd_image/image.jpg" alt="img">
+                <img :src="'cd_image/'+music_obj.cover_img" alt="img">
                 <div class="circle"></div>
             </div>
             <div class="info">
-                <p class="title">Sev beni beni</p>
-                <p class="artist">Sanam Manudada</p>
+                <p class="title">{{music_obj.title}}</p>
+                <p class="artist">{{music_obj.artist}}</p>
             </div>
         </div>
         <div class="center">
             <div class="btn_group">
                 <font-awesome-icon :icon="['fas', 'step-backward']"></font-awesome-icon>
-                <font-awesome-icon :icon="['fas', 'play']"></font-awesome-icon>
+                <font-awesome-icon :icon="playName" @click="switch_play" class="play"></font-awesome-icon>
                 <font-awesome-icon :icon="['fas', 'step-forward']"></font-awesome-icon>
             </div>
             <div class="music_controller">
                 <span>00:00</span>
                 <div class="controller">
-                    <div class="trake">
-                        <div class="active_trake"></div>
+                    <div class="trake" @click="changeDuration" ref="musicTrake">
+                        <div class="active_trake" ref="activeMusicTrake" :style="{'width':this.music_width+'px'}"></div>
                     </div>
                 </div>
                 <span>03:15</span>
@@ -28,11 +28,11 @@
         </div>
         <div class="right">
             <div class="volume_box">
-                <font-awesome-icon :icon="['fas', 'volume-'+volume_name]"></font-awesome-icon>
+                <font-awesome-icon :icon="volumeName" @click='switch_volume'></font-awesome-icon>
                 <div class="volume_controller">
                     <div class="controller">
-                        <div class="trake">
-                            <div class="active_trake"></div>
+                        <div class="trake" @click="changeVolumn">
+                            <div class="active_trake" ref="activeTrake" :style="{'width':this.volume_width+'px'}"></div>
                         </div>
                     </div>
                 </div>
@@ -51,18 +51,54 @@ export default {
             audio : undefined,
             is_volume : true,
             is_play : true,
-            volume_name: 'up',
-            play_btn_name:'play'
+            music_width:0,
+            volume_width:10,
+            music_obj:{
+                src : 'music/winner-아예.mp3',
+                title : '아예',
+                artist : 'winner',
+                cover_img: 'we.jpg'
+            }
         }
     },
     methods:{
         switch_volume(){
-            if(is_volume) this.volume_name = 'off';
-            else this.volume_name = 'up';
-            is_volume = !is_volume;
-            console.log(this.volume_name);
+            this.is_volume = !this.is_volume;
+        },
+        switch_play(){
+            if(this.is_play) this.audio.play();
+            else this.audio.pause();
+            this.is_play = !this.is_play;
+        },
+        changeDuration(e){
+            this.music_width = e.offsetX;
+        },
+        changeVolumn(e){
+            if(e.offsetX <= 0 && this.is_volume) this.switch_volume();
+            else if(!this.is_volume) this.switch_volume();
+            this.volume_width = e.offsetX;
         }
+    },
+    computed:{
+        volumeName(){
+            return this.is_volume ? ['fas', 'volume-up'] : ['fas', 'volume-off'];
+        },
+        playName(){
+            return this.is_play ? ['fas', 'play'] : ['fas', 'pause'];
+        },
+        volumeValue(){
+            
+        },
+        durationValue(){
+            console.log(this.audio.duration);  
+        }
+        
+    },
+    mounted(){
+        this.audio = new Audio(this.music_obj.src);
     }
+
+
 }
 </script>
 <style scoped>
@@ -133,6 +169,10 @@ export default {
         justify-content: space-between;
     }
 
+    .btn_group > *{
+        cursor:pointer;
+    }
+
     .music_controller{
         width: 450px;
         padding-left: 50px;
@@ -173,11 +213,11 @@ export default {
         border-radius: 6px;
         display: flex;
         align-items: center;
+        cursor:pointer;
     }
 
     .active_trake{
         background-color: white;
-        width: 20%;
         height: 3px;
         border-radius: 6px;
     }

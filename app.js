@@ -5,13 +5,13 @@ import MainComponent from '@/components/MainComponent';
 import PlayListComponent from '@/components/PlayListComponent';
 import LoginComponent from '@/components/LoginComponent';
 import {library} from '@fortawesome/fontawesome-svg-core';
-import {faBars, faHome, faHeart, faList, faChartBar, faPlay, faStepBackward, faVolumeUp, faVolumeOff, faStepForward, faEllipsisV} from '@fortawesome/free-solid-svg-icons';
+import {faBars, faHome, faHeart, faList, faChartBar, faPlay, faStepBackward, faVolumeUp, faVolumeOff, faStepForward, faEllipsisV, faPause} from '@fortawesome/free-solid-svg-icons';
 import {FontAwesomeIcon} from '@fortawesome/vue-fontawesome';
 
 import './app.css';
 
 Vue.use(Router);
-library.add(faBars, faHome,  faHeart, faList, faChartBar, faPlay, faStepBackward, faVolumeOff, faVolumeUp, faStepForward, faEllipsisV);
+library.add(faBars, faHome,  faHeart, faList, faChartBar, faPlay, faStepBackward, faVolumeOff, faVolumeUp, faStepForward, faEllipsisV, faPause);
 Vue.component('font-awesome-icon', FontAwesomeIcon);
 Vue.config.productionTip = false;
 
