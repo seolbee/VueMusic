@@ -23,7 +23,7 @@
                         <div class="active_trake" ref="activeMusicTrake" :style="{'width':this.music_width+'px'}"></div>
                     </div>
                 </div>
-                <span>03:15</span>
+                <span>{{this.audio.duration}}</span>
             </div>
         </div>
         <div class="right">
@@ -50,7 +50,7 @@ export default {
         return{
             audio : undefined,
             is_volume : true,
-            is_play : true,
+            is_play : false,
             music_width:0,
             volume_width:10,
             music_obj:{
@@ -66,7 +66,7 @@ export default {
             this.is_volume = !this.is_volume;
         },
         switch_play(){
-            if(this.is_play) this.audio.play();
+            if(!this.is_play) this.audio.play();
             else this.audio.pause();
             this.is_play = !this.is_play;
         },
@@ -84,21 +84,19 @@ export default {
             return this.is_volume ? ['fas', 'volume-up'] : ['fas', 'volume-off'];
         },
         playName(){
-            return this.is_play ? ['fas', 'play'] : ['fas', 'pause'];
+            return !this.is_play ? ['fas', 'play'] : ['fas', 'pause'];
         },
         volumeValue(){
             
         },
         durationValue(){
-            console.log(this.audio.duration);  
+            
         }
         
     },
     mounted(){
         this.audio = new Audio(this.music_obj.src);
     }
-
-
 }
 </script>
 <style scoped>

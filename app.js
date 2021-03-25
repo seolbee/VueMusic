@@ -33,7 +33,7 @@ const router = new Router({
             component:LoginComponent
         }
     ]
-})
+});
 
 window.onload = ()=>{
     new Vue({
