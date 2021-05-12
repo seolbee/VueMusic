@@ -17,13 +17,13 @@
                 <font-awesome-icon :icon="['fas', 'step-forward']"></font-awesome-icon>
             </div>
             <div class="music_controller">
-                <span>00:00</span>
+                <span>{{this.playTimeValue}}</span>
                 <div class="controller">
                     <div class="trake" @click="changeDuration" ref="musicTrake">
                         <div class="active_trake" ref="activeMusicTrake" :style="{'width':this.music_width+'px'}"></div>
                     </div>
                 </div>
-                <span>{{this.audio.duration}}</span>
+                <span>{{this.durationValue}}</span>
             </div>
         </div>
         <div class="right">
@@ -51,6 +51,7 @@ export default {
             audio : undefined,
             is_volume : true,
             is_play : false,
+            duration: 0,
             music_width:0,
             volume_width:10,
             music_obj:{
@@ -66,7 +67,9 @@ export default {
             this.is_volume = !this.is_volume;
         },
         switch_play(){
-            if(!this.is_play) this.audio.play();
+            if(!this.is_play) {
+                
+            }
             else this.audio.pause();
             this.is_play = !this.is_play;
         },
@@ -87,10 +90,15 @@ export default {
             return !this.is_play ? ['fas', 'play'] : ['fas', 'pause'];
         },
         volumeValue(){
-            
+            return this.audio.volume * 100;
         },
         durationValue(){
-            
+            if(this.is_play) return `${Math.floor(Math.floor(this.audio.duration) / 60)}:${Math.floor(this.audio.duration % 60)}`;
+            else return `00:00`;
+        },
+        playTimeValue(){
+            if(this.is_play) return `${Math.floor(Math.floor(this.audio.currentTime) / 60)}:${Math.floor(Math.floor(this.audio.currentTime) % 60)}`;
+            else return `00:00`;
         }
         
     },

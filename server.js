@@ -11,8 +11,8 @@ app.use(express.static(path.join(__dirname, "public")));
 
 app.get("/", (req, res)=>{
     res.render("main");
-})
+});
 
-server.listen(9000, ()=>{
-    console.log("9000 포트에서 작동 중입니다.");
+server.listen(9090, ()=>{
+    console.log("9090 포트에서 작동 중입니다.");
 });
